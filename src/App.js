@@ -1,24 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import TransactionHistory from "./pages/TransactionHistory";
+import FundTransfer from "./pages/FundTransfer";
+import UserRole from "./pages/UserRole";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Template from "./components/Template";
+import Dashboard from './components/Dashboard';
+
+
 
 function App() {
+
+   
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/template" element={<Template />} />
+        <Route path="/transfer" element={<FundTransfer />} />
+        <Route path="/transactions" element={<TransactionHistory />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<ProtectedRoute />}>
+          
+          <Route path="/transactions" element={<TransactionHistory />} />
+          <Route path="/transfer" element={<FundTransfer />} />
+          <Route path="/roles" element={<UserRole />} />
+          
+        </Route>
+      </Routes>
+    </BrowserRouter>
+    
   );
 }
 
