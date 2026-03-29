@@ -19,7 +19,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/template" element={<Template />} />
+        <Route path="/template/:userId/:role" element={<Template />} />
         <Route path="/transfer" element={<FundTransfer />} />
         <Route path="/transactions" element={<TransactionHistory />} />
         <Route path="/dashboard" element={<Dashboard />} />

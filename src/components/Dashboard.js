@@ -3,14 +3,16 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { useParams } from "react-router-dom";
 
 function Dashboard() {
 
+
+const { userId,role } = useParams();
 const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/user/accounts")
+    axios.get(`http://localhost:8080/user/accounts/${userId}/${role}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -43,10 +45,15 @@ const [users, setUsers] = useState([]);
     backgroundColor: "#f0f2f5",
   };
 
+  
+
+  
+
   return (
     
     
     <div style={containerStyle}>
+      
       <table className="table">
           <tr>
               <th>Id</th>

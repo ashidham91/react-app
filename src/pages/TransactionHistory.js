@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 const transactions = [
  {id:1,type:"Credit",amount:2000},
@@ -26,9 +27,21 @@ const appStyle = {
 
 function TransactionHistory(){
 const [users, setUsers] = useState([]);
+const token = localStorage.getItem("token");
+      //if(token){
+        const decoded = jwtDecode(token);
+
+        console.log(decoded);
+        console.log("User ID:", decoded.userId);
+        console.log("Username:", decoded.sub);
+        console.log("Role:", decoded.role);
+         
+        //navigate("/template/"+decoded.userId+"/"+decoded.role);
+      //}
+
 
   useEffect(() => {
-    axios.get("http://localhost:8080/user/transactionHistory")
+    axios.get(`http://localhost:8080/user/transactionHistory/${decoded.userId}/${decoded.role}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
   }, []);
