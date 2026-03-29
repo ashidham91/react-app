@@ -41,7 +41,7 @@ const token = localStorage.getItem("token");
 
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/user/transactionHistory/${decoded.userId}/${decoded.role}`)
+    axios.get(`http://localhost:8080/api/transactionHistory/${decoded.userId}/${decoded.role}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
   }, []);

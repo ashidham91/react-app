@@ -11,7 +11,7 @@ function FundTransfer(){
 
  const handleTransfer = async () =>{
    try {
-      const response = await API.post("http://localhost:8080/user/transaction", 
+      const response = await API.post("http://localhost:8080/api/transaction", 
        
         {
           from_account: from_account,

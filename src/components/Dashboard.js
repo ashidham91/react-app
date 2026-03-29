@@ -12,7 +12,7 @@ const { userId,role } = useParams();
 const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/user/accounts/${userId}/${role}`)
+    axios.get(`http://localhost:8080/api/accounts/${userId}/${role}`)
       .then((res) => setUsers(res.data))
       .catch((err) => console.error(err));
   }, []);
