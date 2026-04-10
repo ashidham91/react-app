@@ -54,6 +54,8 @@ function Header() {
         <Link style={linkStyle} to={`/template/${decoded.userId}/${decoded.role}`}>Home</Link>
         <Link style={linkStyle} to="/transactions">Transaction History</Link>
         <Link style={linkStyle} to="/transfer">Fund Transfer</Link>
+        <Link style={linkStyle} to="/user">Add User</Link>
+        <Link style={linkStyle} to="/account">Add Account</Link>
         <a style={linkStyle} onClick={handleLogout}>Logout</a>
       </nav>
     </header>

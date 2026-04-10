@@ -8,6 +8,8 @@ import UserRole from "./pages/UserRole";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Template from "./components/Template";
 import Dashboard from './components/Dashboard';
+import Users from './pages/Users';
+import AddAccount from './pages/AddAccount';
 
 
 
@@ -23,12 +25,15 @@ function App() {
         <Route path="/transfer" element={<FundTransfer />} />
         <Route path="/transactions" element={<TransactionHistory />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/user" element={<Users />} />
+        <Route path="/account" element={<AddAccount />} />
         <Route element={<ProtectedRoute />}>
           
           <Route path="/transactions" element={<TransactionHistory />} />
           <Route path="/transfer" element={<FundTransfer />} />
           <Route path="/roles" element={<UserRole />} />
-          
+          <Route path="/user" element={<Users />} />
+          <Route path="/account" element={<AddAccount />} />
         </Route>
       </Routes>
     </BrowserRouter>
